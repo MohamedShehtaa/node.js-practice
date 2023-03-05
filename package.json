@@ -1,0 +1,24 @@
+{
+  "name": "node-guide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "start-server":"nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MohamedShehtaa/node-MaxMillion.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MohamedShehtaa/node-MaxMillion/issues"
+  },
+  "homepage": "https://github.com/MohamedShehtaa/node-MaxMillion#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.21"
+  }
+}
