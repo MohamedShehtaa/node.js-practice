@@ -10,9 +10,9 @@ app.use((req,res,next) => {
 
 app.use((req,res,next) => {
     console.log("from moddleware no 2 ")
+    res.send('<h3>hello from express </h3>')
 })
 
-const server =http.createServer (app)
 const port = 3000
 
-server.listen(port,(error) =>{ console.log(`running in port ${port}`)})
+app.listen(port,(error) =>{ console.log(`running in port ${port}`)})
