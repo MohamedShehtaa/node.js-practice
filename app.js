@@ -1,3 +1,4 @@
+const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 
@@ -15,7 +16,7 @@ app.use('/admin',adminRouter)
 app.use('/shop',shopRouter)
 // add 404 page in case un an handled requests  
 app.use((req,res,next)=>{
-    res.status(404).send('<h1> Page Not Found </h1>')
+    res.status(404).sendFile(path.join(__dirname,'views','not-found.html'))
 })
 
 
