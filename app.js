@@ -11,8 +11,12 @@ app.use(bodyParser.urlencoded({extended:false}))
 
 // the order here does not matter cuze the router handle this with method and the path if matched 
 
-app.use(adminRouter)   
-app.use(shopRouter)
+app.use('/admin',adminRouter)   
+app.use('/shop',shopRouter)
+// add 404 page in case un an handled requests  
+app.use((req,res,next)=>{
+    res.status(404).send('<h1> Page Not Found </h1>')
+})
 
 
 const port = 3000

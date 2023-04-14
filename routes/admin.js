@@ -1,10 +1,14 @@
 const express = require('express')
 
 const router = express.Router()
+
+//reachable '/admin/add-product' ==> get
 router.get('/add-product',(req,res,next) => {
-    res.send('<form action="/product" method="POST"> <input type="text" name="title" > <button type="submit" >add product </button></form>')
+    res.send('<form action="/admin/add-product" method="POST"> <input type="text" name="title" > <button type="submit" >add product </button></form>')
 })
-router.post('/product',(req,res,next) => {
+
+//reachable '/admin/add-product' ==> post
+router.post('/add-product',(req,res,next) => {
     
     res.redirect('/')
 
