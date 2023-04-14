@@ -4,24 +4,16 @@ const bodyParser = require('body-parser')
 
 const app = express()
 
+const adminRouter = require('./routes/admin')
+const shopRouter = require('./routes/shop')
+
 app.use(bodyParser.urlencoded({extended:false}))
 
-app.use('/',(req,res,next) => { //default
-    // console.log("from moddleware no 1")
-    next() // allow the req to move to next middleware
-})
-app.use('/add-product',(req,res,next) => {
-    res.send('<form action="/product" method="POST"> <input type="text" name="title" > <button type="submit" >add product </button></form>')
-})
-app.get('/product',(req,res,next) => {
-    console.log(req.body.title)
-    res.redirect('/')
-})
+// the order here does not matter cuze the router handle this with method and the path if matched 
 
-app.use('/',(req,res,next) => {
-    // console.log("from moddleware no 2 ")
-    res.send('<h3>hello from express </h3>')
-})
+app.use(adminRouter)   
+app.use(shopRouter)
+
 
 const port = 3000
 
