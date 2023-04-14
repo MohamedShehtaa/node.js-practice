@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({extended:false}))
 // the order here does not matter cuze the router handle this with method and the path if matched 
 
 app.use('/admin',adminRouter)   
-app.use('/shop',shopRouter)
+app.use(shopRouter)
 // add 404 page in case un an handled requests  
 app.use((req,res,next)=>{
     res.status(404).sendFile(path.join(__dirname,'views','not-found.html'))
