@@ -1,0 +1,14 @@
+1- routing in express  
+
+  A- the filtering of requests form top to bottom check on method and the path if matched then this middleware will handle the request,
+    if not the last middleware will handle un matched request(404 error page).
+
+  B- there are two calling for routes outsource (admin and shop) routes and  catch all routes (404)
+
+  c- in outsource routes sometimes the paths have a common starting ex: 
+     - '/admin/add-product'
+     - '/admin/product'
+       so like this we can take the duplicated part from paths in router file and put it in app.js with middleware of this route
+       the if we need to trigger this route like this =>http://localhost:3000/admin/add-product 
+       
+  D- the same path can de used in case different methods 
