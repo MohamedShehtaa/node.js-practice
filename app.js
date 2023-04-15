@@ -9,6 +9,7 @@ const adminRouter = require('./routes/admin')
 const shopRouter = require('./routes/shop')
 
 app.use(bodyParser.urlencoded({extended:false}))
+app.use(express.static(path.join(__dirname,'public' )))
 
 // the order here does not matter cuze the router handle this with method and the path if matched 
 
