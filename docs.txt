@@ -1,3 +1,10 @@
+general notes 
+  ** express add contentType for you can override this.
+  ** public folder => best practice name for the folder which (convention ) indicate that this a folder hold content which are 
+     always exposed to public crowd  so you don't need any permission to access it so all the files in it not accessible for the users
+ 
+ 
+
 1- routing in express  
 
   A- the filtering of requests form top to bottom check on method and the path if matched then this middleware will handle the request,
@@ -10,5 +17,14 @@
      - '/admin/product'
        so like this we can take the duplicated part from paths in router file and put it in app.js with middleware of this route
        the if we need to trigger this route like this =>http://localhost:3000/admin/add-product 
-       
+
   D- the same path can de used in case different methods 
+
+2- MVC => model view controller structure 
+  * views : what we serve to the user in one place of our application in the views folder
+
+3- serve the files statically with express 
+  * (express.static(here the path of the folder or a file you want to serve it statically ))
+  * it can be css files, images ,etc ...
+  * what happened ? i make public folder is public so i can access any file in it with hit the filename after / with command
+    app.use(path.static())  
