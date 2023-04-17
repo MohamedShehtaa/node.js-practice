@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
 
-const adminRouter = require('./routes/admin')
+const adminData = require('./routes/admin')
 const shopRouter = require('./routes/shop')
 
 const app = express()
@@ -13,7 +13,7 @@ app.use(express.static(path.join(__dirname,'public' )))  // for handle static fi
 
 // the order here does not matter cuze the router handle this with method and the path if matched 
 
-app.use('/admin',adminRouter)   
+app.use('/admin',adminData.router)   
 app.use(shopRouter)
 // add 404 page in case un an handled requests  
 app.use((req,res,next)=>{
