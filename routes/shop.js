@@ -2,6 +2,8 @@ const path = require('path')
 const express = require('express')
 const rootDir = require('../util/path')
 
+const adminData =require('./admin')
+
 const router = express.Router()
 
 router.get('/',(req,res,next) => {
@@ -9,6 +11,7 @@ router.get('/',(req,res,next) => {
     // - first params is dirname => refer to the folder of this file
     // - second params is the folder you need to reach 
     // - 3 params is the file name so on ... 
+    console.log(adminData.products)
     res.sendFile(path.join(rootDir, 'views', 'shop.html'))  // method to send file to the client , it should be the absolute path
 
 })
