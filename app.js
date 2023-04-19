@@ -6,6 +6,10 @@ const adminData = require('./routes/admin')
 const shopRouter = require('./routes/shop')
 
 const app = express()
+// by default look for views folder in main root 
+app.set('view engine', 'pug') // set a global configuration value 
+// if there's different name for views folder or different location use this
+// app.set('views','name')
 
 
 app.use(bodyParser.urlencoded({extended:false}))
