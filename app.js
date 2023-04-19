@@ -21,7 +21,7 @@ app.use('/admin',adminData.router)
 app.use(shopRouter)
 // add 404 page in case un an handled requests  
 app.use((req,res,next)=>{
-    res.status(404).sendFile(path.join(__dirname,'views','not-found.html'))
+    res.status(404).render('404', {pageTitle: 'Page Not Found'});
 })
 
 

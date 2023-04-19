@@ -13,7 +13,7 @@ router.get('/',(req,res,next) => {
     // - 3 params is the file name so on ... 
     // res.sendFile(path.join(rootDir, 'views', 'shop.html'))  // method to send file to the client , it should be the absolute path
     const products = adminData.products
-    res.render('shop',{prods:products, docTitle:'Shop'})
+   res.render('shop', {prods: products, pageTitle: 'Shop', path: '/'})
 })
 
 module.exports = router

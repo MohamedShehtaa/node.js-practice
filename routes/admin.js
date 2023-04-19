@@ -10,7 +10,8 @@ const products = []  // this is not the perfect solution cuze => i share the dat
 router.get('/add-product',(req,res,next) => {
     //__dirname: location of current file , then ../views/add-product.html
     //rootDir=== __dirname,'../' === __dirname,'..'
-    res.sendFile(path.join(rootDir,'views','add-product.html'))
+    // res.sendFile(path.join(rootDir,'views','add-product.html'))
+     res.render('add-product', { pageTitle: 'Add Product', path: '/admin/add-product' })
 })
 
 //reachable '/admin/add-product' ==> post
