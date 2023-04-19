@@ -12,8 +12,8 @@ router.get('/',(req,res,next) => {
     // - second params is the folder you need to reach 
     // - 3 params is the file name so on ... 
     console.log(adminData.products)
-    res.sendFile(path.join(rootDir, 'views', 'shop.html'))  // method to send file to the client , it should be the absolute path
-
+    // res.sendFile(path.join(rootDir, 'views', 'shop.html'))  // method to send file to the client , it should be the absolute path
+    res.render('shop')
 })
 
 module.exports = router
