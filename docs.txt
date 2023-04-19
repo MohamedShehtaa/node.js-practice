@@ -40,3 +40,8 @@ general notes
      1- EJS => <p><%= name %></p>  : use normal html and plain js in your template
      2- PUG(Jade) => p #{name}  : use minimal HTML and custom template language
      3- Handlebars => <p> { {name} }</p> : use normal html and custom template language
+  
+   * app.set() => allows us to set any values globally on our express application
+                  this can be keys or config items express does not understands
+                - in  this case we ignore them but we could read them from the app object with app.get()
+                  this is another way to share data across our app => look in express docs
