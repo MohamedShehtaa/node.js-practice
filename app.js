@@ -7,9 +7,11 @@ const shopRouter = require('./routes/shop')
 
 const app = express()
 // by default look for views folder in main root 
-app.set('view engine', 'pug') // set a global configuration value 
+// app.set('view engine', 'pug') // set a global configuration value 
 // if there's different name for views folder or different location use this
 // app.set('views','name')
+app.set('view engine', 'ejs')
+app.set('views', 'views')
 
 
 app.use(bodyParser.urlencoded({extended:false}))
@@ -21,7 +23,7 @@ app.use('/admin',adminData.router)
 app.use(shopRouter)
 // add 404 page in case un an handled requests  
 app.use((req,res,next)=>{
-    res.status(404).render('404', {pageTitle: 'Page Not Found'});
+    res.status(404).render('404', {pageTitle: 'Page Not Found'})
 })
 
 
