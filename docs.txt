@@ -38,8 +38,8 @@ general notes
 
    ** available templating engine **
      1- EJS => <p><%= name %></p>  : use normal html and plain js in your template
-     2- PUG(Jade) => p #{name}  : use minimal HTML and custom template language
-     3- Handlebars => <p> { {name} }</p> : use normal html and custom template language
+     2- PUG(Jade) => p #{name}  : use minimal HTML and custom template language  => build in express so use it with set directly
+     3- Handlebars => <p> { {name} }</p> : use normal html and custom template language => not build in so require the package and use it with app.engine() method
   
    * app.set() => allows us to set any values globally on our express application
                   this can be keys or config items express does not understands
