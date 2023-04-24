@@ -53,3 +53,6 @@ general notes
                 allowing to work with you data
 
     ** controllers : connection point between the modules and  views ( which model should work and which view should render)
+
+
+** hint => when i pass cb as parameter here means do thing when the main function finished 
