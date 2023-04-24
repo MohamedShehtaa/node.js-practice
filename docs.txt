@@ -45,3 +45,11 @@ general notes
                   this can be keys or config items express does not understands
                 - in  this case we ignore them but we could read them from the app object with app.get()
                   this is another way to share data across our app => look in express docs
+
+5- Model View controller (MVC) => pattern to follow in backend apps for structuring your code
+    **  views : like we have here to render front end code (what the users see in the end )
+
+    ** models : are basically objects or is a part of your code that responsible for representing your data
+                allowing to work with you data
+
+    ** controllers : connection point between the modules and  views ( which model should work and which view should render)
