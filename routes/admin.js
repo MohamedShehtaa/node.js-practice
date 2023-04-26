@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 const express = require('express');
 
@@ -14,5 +14,9 @@ router.get('/products', adminController.getProducts);
 
 // /admin/add-product => POST
 router.post('/add-product', adminController.postAddProduct);
+
+router.get('/edit-product/:productId', adminController.getEditProduct);
+
+router.post('/edit-product', adminController.postEditProduct);
 
 module.exports = router;
