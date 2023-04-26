@@ -1,43 +1,60 @@
-// single product not products cuze the my app core is product 
-// so i want here to describe the structure of this product 
-const fs = require('fs')
-const path = require('path')
+const fs = require('fs');
+const path = require('path');
 
-const rootPath = require('../util/path')
+const p = path.join(
+  path.dirname(process.mainModule.filename),
+  'data',
+  'products.json'
+);
 
-const productPath = path.join(rootPath, 'data','products.json')
-const getProductsFromFile = (cb) => {
-    fs.readFile(productPath,(err,fileContent) => {
-            if(err)  cd([])
-            else cb(JSON.parse(fileContent))
-    })
-}
+const getProductsFromFile = cb => {
+  fs.readFile(p, (err, fileContent) => {
+    if (err) {
+      cb([]);
+    } else {
+      cb(JSON.parse(fileContent));
+    }
+  });
+};
 
 module.exports = class Product {
-   constructor(title, imageUrl, description, price) {
+  constructor(id, title, imageUrl, description, price) {
+    this.id = id;
     this.title = title;
     this.imageUrl = imageUrl;
     this.description = description;
     this.price = price;
   }
 
-    save() {
-        this.id = Math.random().toString()
-        getProductsFromFile(products => {
-            products.push(this)
-            fs.writeFile(productPath,JSON.stringify(products),(err)=> console.log(err))
-        })
-    }
+  save() {
+    getProductsFromFile(products => {
+      if (this.id) {
+        const existingProductIndex = products.findIndex(
+          prod => prod.id === this.id
+        );
+        const updatedProducts = [...products];
+        updatedProducts[existingProductIndex] = this;
+        fs.writeFile(p, JSON.stringify(updatedProducts), err => {
+          console.log(err);
+        });
+      } else {
+        this.id = Math.random().toString();
+        products.push(this);
+        fs.writeFile(p, JSON.stringify(products), err => {
+          console.log(err);
+        });
+      }
+    });
+  }
 
-    static fetchAll(cb){
-        getProductsFromFile(cb)
-   }
+  static fetchAll(cb) {
+    getProductsFromFile(cb);
+  }
 
-   static findById ( id, cb ) {
-        getProductsFromFile(products => {
-            const product = products.find(p=> p.id === id)
-            cb(product)
-        })
-
-   }
-}
+  static findById(id, cb) {
+    getProductsFromFile(products => {
+      const product = products.find(p => p.id === id);
+      cb(product);
+    });
+  }
+};
