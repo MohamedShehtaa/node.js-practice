@@ -56,3 +56,7 @@ general notes
 
 
 ** hint => when i pass cb as parameter here means do thing when the main function finished 
+
+** query params => can be added to any url by adding a question mark and  then a key value pair separated by equal  (?key=value) 
+                   ex : edit-product/12?edit=true&title=...  
+                   ** important : value always string  
