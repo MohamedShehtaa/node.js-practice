@@ -60,3 +60,30 @@ general notes
 ** query params => can be added to any url by adding a question mark and  then a key value pair separated by equal  (?key=value) 
                    ex : edit-product/12?edit=true&title=...  
                    ** important : value always string  
+
+**************************************************************************
+
+                        *** working with database ***
+1- sql database
+    A- run the mysql server 
+    B- go to workbench ui and create new database
+    C- install mysql package in your node app
+    D- you need to connect to your db from your app 
+        -- here we will setup some code that allow us to connect ro sql db and this will give us back
+           a connection object which allows us to run queries.
+    E- you have to ways to connect to sql db 
+       1- to create connection before any query and after that query close the connection  (NOT RECOMMENDED)
+       2- create connection pool  => look at the docs
+            -- is a single connection but a pool of connections which will allows us to always reach out to it whenever
+               have a query to run and then we get a new connection from that pool which manages multiple connections
+            -*- each query need it's own connection   
+            -*- the pool then can be finished when our app shutdown  
+
+    F- we import that pool and use it's methods like:
+       1- execute('sql queries like select * from table ')  saver than query method 
+       2- query()
+       3- end ( ) to end our connection 
+       ... so on you need to learn sql db 
+    
+    G- VALUES (?, ?, ?, ?) => this pattern  to safely insert values and not face the issue of sql injection which is 
+       an attack pattern where users can insert special data into your input fields thats run as sql queries 
