@@ -6,6 +6,8 @@ const adminRoutes = require('./routes/admin')
 const shopRouter = require('./routes/shop')
 const errorController = require('./controllers/error');
 
+const db = require('./util/database')
+
 const app = express()
 
 app.set('view engine', 'ejs')
@@ -19,6 +21,7 @@ app.use(express.static(path.join(__dirname,'public' )))  // for handle static fi
 
 app.use('/admin',adminRoutes)   
 app.use(shopRouter)
+
 // add 404 page in case un an handled requests  
 app.use(errorController.get404)
 
