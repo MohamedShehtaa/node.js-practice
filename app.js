@@ -6,7 +6,7 @@ const adminRoutes = require('./routes/admin')
 const shopRouter = require('./routes/shop')
 const errorController = require('./controllers/error');
 
-const db = require('./util/database')
+const sequelize = require('./util/database')  // use it here to turn all models to a tables
 
 const app = express()
 
@@ -24,6 +24,8 @@ app.use(shopRouter)
 
 // add 404 page in case un an handled requests  
 app.use(errorController.get404)
+
+sequelize.sync().then(res =>console.log(res)).catch(err => console.log(err)) // it syncs your models to db tables
 
 
 const port = 3000
