@@ -1,12 +1,9 @@
-const mysql = require('mysql2')
+const Sequelize = require('sequelize')
 
-const pool = mysql.createPool({ // option obj
-    host:'localhost', //server host or name
-    user:'root', // our username 
-    database:'node-complete', // db name => cuze our server have multi dbs 
-    password:'mohamed12345%'
-})
 
-// then we will export out pool 
+const sequelize = new Sequelize('node-complete', 'root','mohamed12345%',{
+    dialect:'mysql',
+    host:'localhost'
+} )
 
-module.exports = pool.promise()  // this allows us to use promises when working with these  connection  to handle async data  instead of callbacks
+module.exports = sequelize 
