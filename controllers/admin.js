@@ -13,12 +13,20 @@ exports.postAddProduct = (req, res, next) => {
   const imageUrl = req.body.imageUrl;
   const price = req.body.price;
   const description = req.body.description;
-  Product.create({
+//   Product.create({
+//     title,
+//     price,
+//     imageUrl,
+//     description,
+//     userId:req.user.id,  // basic way 
+//   })
+  req.user.createProduct({ // this method created on fly because of association (has many and belongTo) and this will put the userId automatically
     title,
     price,
     imageUrl,
-    description
-  }).then((result)=>{
+    description,
+  })
+  .then((result)=>{
       console.log(result)
     res.redirect('/admin/products')
   }).catch(err => console.log(err))
