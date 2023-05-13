@@ -68,7 +68,10 @@ sequelize
             }
             return user
          })
-         .then(user=> {
+         .then(user => {
+            return user.createCart()
+         })
+         .then(cart=> {
             // app.listen(3000)
             const port = 3000
             app.listen(port,(error) =>{ console.log(`running on  http://localhost:${port}/ `)})
