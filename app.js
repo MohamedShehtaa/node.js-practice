@@ -10,6 +10,8 @@ const sequelize = require('./util/database')  // use it here to turn all models 
 
 const Product = require('./models/product')
 const User = require('./models/user')
+const Cart = require('./models/cart')
+const CartItem = require('./models/cart-item')
 
 const app = express()
 
@@ -37,9 +39,17 @@ app.use(shopRouter)
 // add 404 page in case un an handled requests  
 app.use(errorController.get404)
 
+//association
+
+// those relations will make id and put it in each other
+
 Product.belongsTo(User,{constraints:true, onDelete: 'CASCADE' }/* how this relation can be mange */) // here user create the product
 User.hasMany(Product) // one user can add more one product to a shop == belongTo
-
+User.hasOne(Cart)
+Cart.belongsTo(User) // optional
+// many to many between (cart , product )
+Cart.belongsToMany(Product,{through: CartItem} /*combination table store in it productId and cartId */ ) // cart can have multi product 
+Product.belongsToMany(Cart,{through: CartItem}) // product can be part of multi carts
 
 sequelize
         //  .sync({force:true}/* here to overwrite the table on db to add two tables and their relation  not use in production */ )
