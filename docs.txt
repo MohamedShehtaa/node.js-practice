@@ -69,7 +69,7 @@ general notes
     B- go to workbench ui and create new database
     C- install mysql package in your node app
     D- you need to connect to your db from your app 
-        -- here we will setup some code that allow us to connect ro sql db and this will give us back
+        -- here we will setup some code that allow us to connect to sql db and this will give us back
            a connection object which allows us to run queries.
     E- you have to ways to connect to sql db 
        1- to create connection before any query and after that query close the connection  (NOT RECOMMENDED)
@@ -87,3 +87,18 @@ general notes
     
     G- VALUES (?, ?, ?, ?) => this pattern  to safely insert values and not face the issue of sql injection which is 
        an attack pattern where users can insert special data into your input fields thats run as sql queries 
+
+       
+  ** sequelize ==> third party package  : its Object-Relational Mapping library (ORM)
+                    which means doing the heavy lifting  all sql code behind the scenes for us and map it into js objects with 
+                    convenience methods which we can call to execute behind the scenes Sql code 
+          core concept: 
+             1- models => ex: User, Product
+             2- instance => const user = User.build() 
+             3- queries => User.findAll()
+             4- associations => User.hasMany(Product)
+
+             install it needed mysql2 to be installed
+
+        ** associations:(relation) => 
+        
